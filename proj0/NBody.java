@@ -1,7 +1,7 @@
 public class NBody {
 
     // 这里为什么用静态方法??
-    public static double readRadius(String filename){
+    private static double readRadius(String filename){
         double radius = 0.0;
         In in = new In(filename);
         in.readInt();
@@ -15,14 +15,23 @@ public class NBody {
         int n = in.readInt();
         in.readDouble();
         Planet[] planets = new Planet[n];
+
+        double xxPos;
+        double yyPos;
+        double xxVel;
+        double yyVel;
+        double mass;
+        String img;
+
         for (int i = 0; i < planets.length; i++) {
-            planets[i] = new Planet();
-            planets[i].xxPos = in.readDouble();
-            planets[i].yyPos = in.readDouble();
-            planets[i].xxVel = in.readDouble();
-            planets[i].yyVel = in.readDouble();
-            planets[i].mass = in.readDouble();
-            planets[i].imgFileName = in.readString();
+            xxPos = in.readDouble(); 
+            yyPos = in.readDouble();
+            xxVel = in.readDouble();
+            yyVel = in.readDouble();
+            mass = in.readDouble();
+            img = in.readString();
+            planets[i] = new Planet(xxPos, yyPos,xxVel, yyVel, mass, img);
+            
         }
 
         return planets;
@@ -94,8 +103,6 @@ public class NBody {
                         planets[i].yyVel, planets[i].mass, planets[i].imgFileName);   
         }
     }
-
-
 
 
 }

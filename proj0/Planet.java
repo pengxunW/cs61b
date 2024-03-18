@@ -11,9 +11,6 @@ public class Planet {
     /**与描述行星的图像相对应的文件名（例如 jupiter.gif） */
     public String imgFileName;
 
-    public Planet(){
-        
-    }
 
     public Planet(double xP, double yP, double xV,double yV, double m, String img){
         xxPos = xP;
