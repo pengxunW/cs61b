@@ -1,7 +1,7 @@
 public class NBody {
 
-    // 这里为什么用静态方法??
-    private static double readRadius(String filename){
+    // 这里为什么用静态方法,依据测试例,是由Nobody.readRadius()的.
+    public static double readRadius(String filename){
         double radius = 0.0;
         In in = new In(filename);
         in.readInt();
