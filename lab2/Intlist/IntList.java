@@ -82,7 +82,17 @@ public class IntList {
 
     public static IntList dcatenate(IntList A, IntList B) {
         //TODO:  fill in method
-        return null;
+
+        if(A == null){
+            return B;
+        }
+        /** catenate A and B directly while B is followed by A.*/
+        IntList ptr = A;
+        while(ptr.rest != null){
+            ptr = ptr.rest;
+        }
+        ptr.rest = B;
+        return A;
     }
 
     /**
@@ -91,7 +101,27 @@ public class IntList {
      */
     public static IntList catenate(IntList A, IntList B) {
         //TODO:  fill in method
-        return null;
+        if(A == null){
+            return B;
+        }
+        /**use iteration and new()*/
+        IntList res = new IntList(A.first, null);
+        IntList pa = res;
+        A = A.rest;
+        while(A != null){
+            pa.rest = new IntList(A.first, null);
+            pa = pa.rest;
+            A = A.rest;
+        }
+        while(B != null){
+            pa.rest = new IntList(B.first, null);
+            pa = pa.rest;
+            B = B.rest;
+        }
+        return res;
+        /**the definition of this recursion: catenate a list  with B from a certain start in the list , and return the catenated list address.*/
+//        return new IntList(A.first,catenate(A.rest, B));
+
     }
 
 
